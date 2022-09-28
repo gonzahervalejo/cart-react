@@ -7,3 +7,9 @@
     text-decoration: line-through;
     text-transform: uppercase;
 }
+
+.me-auto{
+
+    text-align: center;
+    margin: 0px auto;
+}
