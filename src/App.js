@@ -1,11 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import Navbar from './components/NavBar/Navbar';
+import Navbar from './components/NavBar/Navbar'
+import ItemListContainer from "./components/ItemListContainer/Itemlistcontainer";
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <div className="App">
+      <Navbar/>
+    <ItemListContainer greeting={"Tienda Ziba"}/>
     </div>
   );
 }
