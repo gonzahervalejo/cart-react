@@ -3,9 +3,9 @@ import './Cartwidget.css'
 
 const Cartwidget = () => {
     return (
-        <div className='cart-widget'>
+        <div to='/cart' className='cart-widget'>
             <img width="30px" src={cart} alt='cart'/>
-            0
+            {0}
         </div>
     )
 }

@@ -3,30 +3,30 @@
 const products = [
     {
         id: "1",
-        name: "Medias",
+        name: "Medias rayadas",
         price: 350,
         category: "Medias",
-        img: `Assets/Media3.jpeg`,
+        img: 'https://lenceriamytio.com.ar/tienda/6106-large_default/200elemento.jpg',
         stock: 10,
         description: "Descripcion de la media",
     },
 
     {
         id: "2",
-        name: "Medias",
+        name: "Medias azules",
         price: 300,
         category: "Medias",
-        img: `Assets/Media2.jpeg`,
+        img: 'https://lenceriamytio.com.ar/tienda/6155-large_default/1021elemento.jpg',
         stock: 4,
         description: "Descripcion de la media",
     },
 
     {
         id: "3",
-        name: "Medias",
+        name: "Soquete ",
         price: 250,
-        category: "Medias",
-        img: `Assets/Media1.jpeg`,
+        category: "Soquete",
+        img: 'https://lenceriamytio.com.ar/tienda/9522-large_default/101-elemento.jpg',
         stock: 9,
         description: "Descripcion de la media",
     },
@@ -41,19 +41,20 @@ export const getProducts = () => {
 };
 
 export const getProductById = (id) => {
-    return new Promise((resolve) => {
+    return new Promise (resolve => {
         setTimeout(() => {
-            resolve(products.find((prod) => prod.id === id));
-        }, 500);
+            resolve(products.find(prod => {
+                return prod.id === id
+            }))
+        }, 500)
     });
 };
 
 export const getProductsByCategory = (categoryId) => {
-    return new Promise((resolve) => {
+    return new Promise (resolve => {
         setTimeout(() => {
-            resolve(products.filter((prod) => prod.category === categoryId));
-        }, 500);
-    });
-};
-
+            resolve(products.filter(prod => prod.category === categoryId))
+        }, 500)
+    })
+}
 console.log(products);

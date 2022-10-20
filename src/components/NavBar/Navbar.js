@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css'
 import Cartwidget from '../CartWidget/Cartwidget';
+import {Link} from 'react-router-dom'
 
 
 
@@ -11,11 +12,13 @@ function ColorSchemesExample() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Tienda Ziba</Navbar.Brand>
+        <Link to='/'>
+          <h3>Tienda Ziba</h3>
+      </Link>
           <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#music">Productos</Nav.Link>
-                    <Nav.Link href="#more">Categorias</Nav.Link>
+          <Link to={'/category/Home'} >Home</Link>
+            <Link to={'/category/Productos'} >Productos</Link>
+            <Link to={'/category/Categorias'}>Categorias</Link>
                 </Nav>
                 <Cartwidget/>
         </Container>
