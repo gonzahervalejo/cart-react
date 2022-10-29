@@ -11,7 +11,10 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const {productId} = useParams()
-  console.log(productId)
+
+    console.log(productId);
+    console.log(product);
+
 
 
   useEffect(() => {
@@ -22,6 +25,7 @@ const ItemDetailContainer = () => {
     })
     
 }, [productId])
+
 
 if(loading) {
   return <h1>Cargando...</h1>
@@ -34,11 +38,10 @@ if(loading) {
     <h1>Detalle</h1>
 
     <div>
-    <ItemDetail key= {product.id} {...product}/>
+    <ItemDetail {...product}/>
     </div>
     </>
   )
 }
 export default ItemDetailContainer
 
-// key={product.id}

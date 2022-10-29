@@ -1,10 +1,15 @@
 import ItemCount from "../ItemCount/ItemCount";
+import React,{useState} from "react";
 
-const ItemDetail = ({name, price, img, description,stock}) => {
+const ItemDetail = ({name, price, img, description,stock,category}) => {
 
-  const onAdd =(count)=>{
+const [goToCart, setGoToCart] = useState(()=>{return false})
 
-        console.log(`Compraste ${count} unidades`);
+
+  const onAdd =()=>{
+
+        setGoToCart(true)
+   
 
     }
   return (
@@ -16,11 +21,26 @@ const ItemDetail = ({name, price, img, description,stock}) => {
     <h2>{name}</h2>
     </header>
     <section>
+    <p>{category}</p>
     <p>Price:${price}</p>
     <p>Description: {description}</p>
     </section>
-     <ItemCount initial={1}  stock = {stock} onAdd={onAdd} />
+ 
+
+ 
+    {
+     
+     
+      goToCart
+      ? <button>Producto Agregado</button>
+      
+      :<ItemCount initial={1}  stock = {stock} onAdd={onAdd} />
+      
+    }
+     
     </div>
+
+    
   )
 }
 export default ItemDetail

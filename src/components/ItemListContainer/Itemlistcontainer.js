@@ -6,18 +6,21 @@ import { useParams } from "react-router-dom"
 
 
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({}) => {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-
+    
+    
+    
     const { categoryId } = useParams()
 
+    //hook se ejecuta una sola vez, cuando se renderiza el componente
     useEffect(() => {
         setLoading(true)
 
         const asyncFunction = categoryId ? getProductsByCategory : getProducts
-        asyncFunction(categoryId).then(response => {
+        asyncFunction(categoryId).then(response => { //trabajo con asincronismo
             setProducts(response)
         }).catch(error => {
             console.log(error)
@@ -30,14 +33,15 @@ const ItemListContainer = ({ greeting }) => {
 
     if(loading) {
         return <h1>Loading...</h1>
-    }
+    } 
 
 
      return (
       
-         <div onClick={() => console.log('click en itemlistcontainer')}>
+         <div>
+         
             <h1>Listado de Productos</h1>
-            <ItemList products={products}/>
+            <ItemList products={products} />
           
         </div>
    

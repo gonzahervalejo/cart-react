@@ -5,10 +5,11 @@ import { useState } from "react"
 
 const ItemCount = ({stock = 5, initial = 0, onAdd}) => {
 
+   
     const [count, setCount] = useState(initial) 
 
+  
    
-
     const increment =()=>{
     if(count < stock)
         setCount(count +1)
@@ -28,10 +29,12 @@ const ItemCount = ({stock = 5, initial = 0, onAdd}) => {
 
 <div className="contador">
 
+    
     <h1> {count} </h1> 
 
    <button onClick={decrement}> <img width= "30px" src={less} alt="menos" /> </button>
     <button onClick={increment}> <img width= "30px" src={more} alt="mas" /> </button>
+   
     <button onClick={()=> onAdd(count)}>Agregar al carrito</button>
 
 </div>  )
