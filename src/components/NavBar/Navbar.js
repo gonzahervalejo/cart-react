@@ -16,9 +16,26 @@ function ColorSchemesExample() {
           <h3>Tienda Ziba</h3>
       </Link>
           <Nav className="me-auto">
-          <Link to={'/category/Home'} >Home</Link>
-            <Link to={'/category/Productos'} >Productos</Link>
-            <Link to={'/category/Categorias'}>Categorias</Link>
+
+          <ul className="navbar-nav">
+          
+              <li className='menu'  >
+              <Link id="item" to = '/category/Medias'>
+                <p id="p">Soquetes</p>
+                </Link>
+              </li>
+              <li className='menu' >
+              <Link id="item" to = '/category/Soquetes'>
+                <p id="p">Media</p>
+              </Link>
+              </li>
+          
+            </ul>
+
+
+{/*           <Link to={'/category/Home'} >Home</Link>
+            <Link to={'/category/Productos'} >Soquetes</Link>
+            <Link to={'/category/Categorias'}>Medias</Link> */}
                 </Nav>
                 <Cartwidget/>
         </Container>

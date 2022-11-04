@@ -1,16 +1,20 @@
 import {useState, useEffect} from "react"
-import { getProductById } from "../asyncMock"
+// import { getProductById } from "../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
+import { getDoc,doc } from "firebase/firestore"
+import { db } from "../../Service/Firebase/Index"
 
 
-const ItemDetailContainer = () => {
+
+const ItemDetailContainer = ({setCart}) => {
 
   
   const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
 
     const {productId} = useParams()
+    const navigate = useNavigate()
 
     console.log(productId);
     console.log(product);
@@ -18,8 +22,13 @@ const ItemDetailContainer = () => {
 
 
   useEffect(() => {
-    getProductById(productId).then(response => {
-        setProduct(response)
+    const docRef = doc(db, 'products', productId)
+
+    getDoc(docRef).then(response => {
+
+        const data = response.data()
+        const productAdapted = { id: response.id, ...data }
+        setProduct(productAdapted)
     }).finally(() => {
         setLoading(false)
     })
@@ -37,9 +46,10 @@ if(loading) {
     <>
     <h1>Detalle</h1>
 
-    <div>
-    <ItemDetail {...product}/>
-    </div>
+    <div  >
+            <button  onClick={() => navigate(-1)}>Atras</button>
+            <ItemDetail  {...product} />
+        </div>
     </>
   )
 }
