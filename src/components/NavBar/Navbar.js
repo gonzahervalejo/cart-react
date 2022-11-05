@@ -21,12 +21,12 @@ function ColorSchemesExample() {
           
               <li className='menu'  >
               <Link id="item" to = '/category/Medias'>
-                <p id="p">Soquetes</p>
+                <p id="p">Medias</p>
                 </Link>
               </li>
               <li className='menu' >
               <Link id="item" to = '/category/Soquetes'>
-                <p id="p">Media</p>
+                <p id="p">Soquetes</p>
               </Link>
               </li>
           

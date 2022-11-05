@@ -15,7 +15,9 @@ const ItemListContainer = ({}) => {
     
     
     
-    const { categoryId } = useParams()
+    const { categoryId } = useParams();
+
+    console.log(categoryId);
 
     //hook se ejecuta una sola vez, cuando se renderiza el componente
     useEffect(() => {
@@ -25,14 +27,16 @@ const ItemListContainer = ({}) => {
         ? query(collection(db, 'products'), where('category', '==', categoryId))
         : collection(db, 'products')
 
+       
     getDocs(collectionRef).then(response => {
         console.log(response)
         const productsAdapted = response.docs.map(doc => {
             const data = doc.data()
-            console.log(data)
+            
 
             return { id: doc.id, ...data }
         })
+        console.log(productsAdapted);
 
         setProducts(productsAdapted)
 
