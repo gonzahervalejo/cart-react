@@ -35,6 +35,9 @@ const Checkout = () => {
               items: cart,
               total: total
           }
+
+          console.log(objOrder);
+
           
           const batch = writeBatch(db)
 

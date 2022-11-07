@@ -8,7 +8,7 @@ import { db } from "../../Service/Firebase/Index";
 
 
 
-const ItemListContainer = ({}) => {
+const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
@@ -27,7 +27,7 @@ const ItemListContainer = ({}) => {
         ? query(collection(db, 'products'), where('category', '==', categoryId))
         : collection(db, 'products')
 
-       
+        console.log(categoryId);
     getDocs(collectionRef).then(response => {
         console.log(response)
         const productsAdapted = response.docs.map(doc => {

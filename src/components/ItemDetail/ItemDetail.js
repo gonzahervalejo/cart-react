@@ -38,10 +38,7 @@ const { setNotification } = useContext(NotificationContext)
 }
   
 
-  //   addItem(productToAdd, count);
-  //   alert("Se agrego un elemento " + getProductQuantity(id) + " " + productToAdd.name + " " + productToAdd.price );
-      
-  //  }
+  
   const quantityAdded = getProductQuantity(id);
   
   return (
@@ -62,10 +59,8 @@ const { setNotification } = useContext(NotificationContext)
     <footer className='ItemFooter'>
                 { stock !== 0 ? <ItemCount onAdd={onAdd} stock={stock} initial={quantityAdded} />: <p>No hay stock</p>}
                 {
-                    // !isInCart(id) 
-                        //? 
-                        // : <Link to='/cart' className='Option'>Finalizar compra</Link>
-                        isInCart(id) && <Link to='/cart' className='Option' style={{ backgroundColor: 'blue'}}>Finalizar compra</Link>
+                   
+                        isInCart(id) && <Link to='/cart' className='Option'>Finalizar compra</Link>
                 }
                 
             </footer>

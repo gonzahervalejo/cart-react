@@ -33,9 +33,7 @@ function ColorSchemesExample() {
             </ul>
 
 
-{/*           <Link to={'/category/Home'} >Home</Link>
-            <Link to={'/category/Productos'} >Soquetes</Link>
-            <Link to={'/category/Categorias'}>Medias</Link> */}
+
                 </Nav>
                 <Cartwidget/>
         </Container>
